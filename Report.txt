@@ -1,0 +1,437 @@
+		PROJECT: BUILD PROCESS AUTOMATION (DevOps)
+___________________________________________________________________________________________________
+
+Description :
+The objective is to create a script for the deployment environment.
+Script for request of build movement from build to quality is written.
+All steps that are manually followed for a build movement for Build Process Automation have to be automated in this script.
+Success or failure of deployment have to be reported back with a succes or failure of activities completed.
+All updates that are part of a build movement have to be automatically moved to quality environment.
+Necessary backup routines of the build movement have to be covered. 
+___________________________________________________________________________________________________
+
+Pre-requisite : 
+
+VMware Workstations
+
+Linux CentOS 6.6
+
+Environment- 1) Build 
+	     2) Quality 
+
+Scripts - 1) buildmovement.sh 
+	  2) main.sh
+___________________________________________________________________________________________________
+
+Tasks carried out:
+
+#  Start Linux Cent OS 6.6 on VMware Workstations
+
+##  Create two users build and quality
+
+###  Environment Setup for the two users:
+___________________________________________________________________________________________________
+
+For Quality user :
+
+1) Super User Priveledges
+
+
+[quality@host122 ~]$ su
+Password:RootPassword
+
+[root@host122 quality]# 
+
+
+[root@host122 quality]# adduser quality
+
+
+[root@host122 quality]# passwd quality
+Changing password for user quality
+New password: 
+Retype new password: 
+passwd: all authentication tokens updated successfully.
+
+
+[root@host122 quality]# visudo
+
+Go to the following line and add quality user
+# User_Alias ADMINS = jsmith, mikem, accure, quality
+
+Go to the following line to give super user priveledges to the quality user
+## Allow root to run any commands anywhere
+root      ALL=(ALL) ALL
+accure    ALL=(ALL) ALL
+quality   ALL=(ALL) ALL
+
+
+
+[root@host122 quality]# sudo nano /etc/sudoers
+Go to the following line and add quality user
+# User_Alias ADMINS = jsmith, mikem, accure, quality
+
+
+Go to the following line and give super user priviledges to the quality user
+## Allow root to run any commands anywhere
+root	  ALL=(ALL) ALL
+accure    ALL=(ALL) ALL
+quality   ALL=(ALL) ALL
+
+___________________________________________________________________________________________________
+
+2) Setting The Hostname:
+
+
+[quality@host122 ~]$ sudo vim /etc/sysconfig/network
+
+
+NETWORKING=yes
+HOSTNAME=host122.quality.local
+GATEWAY=192.168.2.1
+
+
+[quality@host122 ~]$ sudo vim /etc/hosts
+
+127.0.0.1      122 localhost.localdomain localhost4 localhost4.localdomain4
+::1            122 localhost.localdomain localhost6 localhost6.localdomain6
+192.168.2.122   host122.quality.local
+192.168.2.120   host120.build.local
+
+
+[quality@host122 ~]$ hostname
+host122.quality.local
+
+
+Hostname gets changed ->
+[quality@host122 ~]$
+
+
+If not then enter following command :
+[quality@host122 ~]$hostname host122.quality.local
+host122.quality.local
+
+
+Now the Hostname gets changed ->
+[quality@host122 ~]$
+
+
+[quality@host122 ~]$ service network restart
+___________________________________________________________________________________________________
+
+3) Setting up Static IP
+
+
+Configure default gateway:
+
+
+[quality@host122 ~]$ sudo nano /etc/sysconfig/network
+
+NETWORKING=yes
+HOSTNAME=host122.quality.local
+GATEWAY=192.168.2.1
+
+
+Add netmask and IP address, change BOOTPROTO to static:
+
+
+[quality@host122 ~]$ sudo vim /etc/sysconfig/network-scripts/ifcfg-eth0
+
+
+DEVICE="eth0"
+BOOTPROTO="static"
+HWADDR="00:0C:29:BD:B3:C4"
+IPV6INIT="yes"
+NM_CONTROLLED="yes"
+ONBOOT="yes"
+TYPE="Ethernet"
+UUID="9cc90d21-2723-40ea-9c67-a0cf3e2457d4"
+NETMASK="255.255.255.0"
+IPADDR="192.168.2.122"
+
+
+Add nameserver:
+
+
+[quality@host122 ~]$ sudo nano /etc/resolv.conf
+
+
+NAMESERVER 	192.168.2.122
+___________________________________________________________________________________________________
+
+4) Passwordless ssh
+
+
+[quality@host122 ~]$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/quality/.ssh/id_rsa): 
+/home/quality/.ssh/id_rsa already exists.
+Overwrite (y/n)? y
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/quality/.ssh/id_rsa.
+Your public key has been saved in /home/quality/.ssh/id_rsa.pub.
+The key fingerprint is:
+1f:4a:e7:0b:58:45:c5:c7:d2:af:07:2f:16:11:8a:9e quality@host122.quality.local
+The key's randomart image is:
++--[ RSA 2048]----+
+|          .o.o.. |
+|         . .o.=  |
+|          o .o o |
+|         o .  o .|
+|        S E    = |
+|       + = .  + o|
+|      . o o  . o |
+|         . .     |
+|          .      |
++-----------------+
+
+
+[quality@host122 ~]$ ssh-copy-id -i ~/.ssh/id_rsa.pub quality@192.168.2.122
+quality@192.168.2.122's password: 
+Now try logging into the machine, with "ssh 'quality@192.168.2.122'", and check in:
+
+  .ssh/authorized_keys
+
+to make sure we haven't added extra keys that you weren't expecting.
+
+
+[quality@host122 ~]$ nano .ssh/authorized_keys 
+ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAtr8APLD/nbwhWQpIL10iC/yqVblWqcecFQElqL+A0IG$
+___________________________________________________________________________________________________
+
+For Build user :
+
+1) Super User Priveledges
+
+[build@host120 ~]$ su
+Password:RootPassword
+
+[root@host120 build]# 
+
+[root@host120 build]# adduser build
+
+[root@host120 build]# passwd build
+Changing password for user build
+New password: 
+Retype new password: 
+passwd: all authentication tokens updated successfully.
+
+
+[root@host120 build]# visudo
+Go to the following line and add build user
+# User_Alias ADMINS = jsmith, mikem, accure, build
+
+Go to the following line to give super user priveledges to the build user
+## Allow root to run any commands anywhere
+root     ALL=(ALL) ALL
+accure   ALL=(ALL) ALL
+build    ALL=(ALL) ALL
+
+
+[root@host120 build]# sudo nano /etc/sudoers
+
+Go to the following line and add build user
+# User_Alias ADMINS = jsmith, mikem, accure, build
+
+Go to the following line and give super user priviledges to the build user
+## Allow root to run any commands anywhere
+root	  ALL=(ALL) ALL
+accure    ALL=(ALL) ALL
+build     ALL=(ALL) ALL
+___________________________________________________________________________________________________
+
+2) Setting The Hostname:
+
+[build@host120 ~]$ sudo vim /etc/sysconfig/network
+NETWORKING=yes
+HOSTNAME=host120.build.local
+GATEWAY=192.168.2.1
+
+
+[build@host120 ~]$ sudo vim /etc/hosts
+127.0.0.1      120 localhost.localdomain localhost4 localhost4.localdomain4
+::1            120 localhost.localdomain localhost6 localhost6.localdomain6
+192.168.2.120   host120.build.local
+192.168.2.122   host122.quality.local
+
+
+[build@host120 ~]$ hostname
+host120.build.local
+
+
+Hostname gets changed ->
+[build@host120 ~]$
+
+
+If not then enter following command :
+[build@host120 ~]$hostname host120.build.local
+host120.build.local
+
+
+Now the Hostname gets changed ->
+[build@host120 ~]$
+
+
+[build@host120 ~]$ service network restart
+___________________________________________________________________________________________________
+
+3) Setting up Static IP
+
+
+Configure default gateway:
+
+
+[build@host120 ~]$ sudo nano /etc/sysconfig/network
+
+NETWORKING=yes
+HOSTNAME=host120.build.local
+GATEWAY=192.168.2.1
+
+
+Add netmask and IP address, change BOOTPROTO to static:
+
+
+[build@host120 ~]$ sudo vim /etc/sysconfig/network-scripts/ifcfg-eth0
+
+DEVICE="eth0"
+BOOTPROTO="static"
+HWADDR="00:0C:29:BD:B3:C4"
+IPV6INIT="yes"
+NM_CONTROLLED="yes"
+ONBOOT="yes"
+TYPE="Ethernet"
+UUID="9cc90d21-2723-40ea-9c67-a0cf3e2457d4"
+NETMASK="255.255.255.0"
+IPADDR="192.168.2.120"
+
+
+Add nameserver:
+
+
+[quality@host122 ~]$ sudo nano /etc/resolv.conf
+
+NAMESERVER 	192.168.2.120
+___________________________________________________________________________________________________
+
+4) Passwordless ssh
+
+[build@host122 ~]$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/build/.ssh/id_rsa): 
+/home/build/.ssh/id_rsa already exists.
+Overwrite (y/n)? y
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/build/.ssh/id_rsa.
+Your public key has been saved in /home/build/.ssh/id_rsa.pub.
+The key fingerprint is:
+1f:4a:e7:0b:58:45:c5:c7:d2:af:07:2f:16:11:8a:9e build@host120.build.local
+The key's randomart image is:
++--[ RSA 2048]----+
+|          .o.o.. |
+|         . .o.=  |
+|          o .o o |
+|         o .  o .|
+|        S E    = |
+|       + = .  + o|
+|      . o o  . o |
+|         . .     |
+|          .      |
++-----------------+
+
+
+[build@host120 ~]$ ssh-copy-id -i ~/.ssh/id_rsa.pub build@192.168.2.120
+build@192.168.2.120's password: 
+Now try logging into the machine, with "ssh 'build@192.168.2.120'", and check in:
+
+  
+.ssh/authorized_keys
+
+
+to make sure we haven't added extra keys that you weren't expecting.
+
+
+[build@host120 ~]$ nano .ssh/authorized_keys 
+ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAw5noxyf+3t+JXg0Dtc3tWA3KyG69Zk9AXmEfGtlY+Yo$
+__________________________________________________________________________________________________
+
+Create a folder in quality for backup
+
+[accure@host122 ~]$ ssh quality@192.168.2.122
+quality@192.168.2.122's password: 
+Last login: Wed Oct 28 11:40:37 2015 from host122.quality.local
+
+[quality@host122 ~]$ cd /home/quality
+
+[quality@host122 ~]$ mkdir quality
+
+[quality@host122 ~]$ cd quality
+
+[quality@host122 quality]$ mkdir backup
+
+[quality@host122 quality]$ cd backup
+
+[quality@host122 backup]$pwd
+
+/home/quality/quality/backup
+___________________________________________________________________________________________________
+
+#### Creating the scripts (buildmovement.sh , main.sh) in build environment
+___________________________________________________________________________________________________
+
+[accure@host122 ~]$ ssh build@192.168.2.120
+build@192.168.2.120's password: 
+Last login: Wed Oct 28 11:42:14 2015 from host122.quality.local
+
+[build@host120 ~]$ nano buildmovement.sh
+
+#!/bin/bash
+
+# Creating backup for old versions and then deleting the old versions
+
+echo "Creating Backup for old versions."
+
+scp quality@$2:/usr/local/apache-tomcat-7.0.55/webapps/irheum-*.war quality@$2:/home/quality/quality/backup
+
+echo "Backup Successfully Created."
+
+echo "Deleting old versions if any."
+
+ssh quality@$2 "rm -rf /usr/local/apache-tomcat-7.0.55/webapps/irheum-*"
+
+echo "Deletion Complete."
+
+# Starting Deployment
+
+echo "Starting Deployment."
+
+scp build@$1:/usr/local/apache-tomcat-7.0.55/webapps/irheum-*.war quality@$2:/usr/local/apache-tomcat-7.0.55/webapps
+
+# Checking Application Status
+
+echo "Restarting Tomcat."
+
+ssh quality@$2 "sh /usr/local/apache-tomcat-7.0.55/bin/shutdown.sh"
+
+ssh quality@$2 "sh /usr/local/apache-tomcat-7.0.55/bin/startup.sh"
+
+echo "Tomacat Restart Completed"
+
+echo "Deployment Completed."
+___________________________________________________________________________________________________
+
+[build@host120 ~]$ nano main.sh
+
+./buildmovement $1 $2
+___________________________________________________________________________________________________
+
+Run the main.sh script in build environment to view deployment process and relevent 
+success or failure of activities completed by entering following command :
+
+[build@host120 ~]$ ./main 192.168.2.120 192.168.2.122
+___________________________________________________________________________________________________
+
+
+
+
+

@@ -1,0 +1,648 @@
+On Accure
+
+    1  echo hostname
+    2  echo "hostname"
+    3  echo $hostname
+    4  echo $root
+    5  ls
+    6  mkdir akshay
+    7  cd akshay
+    8  echo $root
+    9  echo $hostname
+   10  clear
+   11  ssh accure@192.168.2.83
+   12  sh 1.sh
+   13  cd Desktop
+   14  sh 1.sh
+   15  chmod 777 1.sh
+   16  sh 1.sh
+   17  ssh accure@192.168.2.82
+   18  ssh engg@192.168.2.78
+   19  cd Desktop
+   20  ls
+   21  chmod 755 1
+   22  chmod 755 1.sh
+   23  ./1
+   24  ./1.sh
+   25  chmod +x 1.sh
+   26  chmod 755 1.sh
+   27  bash 1
+   28  clear
+   29  ls
+   30  chmod +x 1.bash
+   31  ls
+   32  ./1
+   33  ./1.bash 
+   34  nano 1.bash 
+   35  nano 1.sh
+   36  vi 1
+   37  #!/bin/bash
+   38  # A menu driven product deploy shell script 
+   39  pause(){   read -p "Press [Enter] key to continue..." fackEnterKey; }
+   40  # call to copy files to tomcat webapps folder
+   41  COPY_FILES(){ echo "current working directory is:`pwd`"; echo;  echo "Please enter the repository path:"; read $1 echo;  echo "Please enter the tomcat webapps path:"; read $2 echo;  echo "Please enter current version number:"; read $3 echo; 
+   42  clear
+   43  cd desktop
+   44  cd Desktop
+   45  vi 1
+   46  ./1
+   47  chmod 755 1
+   48  ./1
+   49  vi 1
+   50  chmod 755 1
+   51  ./1
+   52  vi 1
+   53  chmod 755 1
+   54  ./1
+   55  vi 1
+   56  cd Desktop
+   57  vi 1
+   58  vi 1.sh
+   59  cd Desktop
+   60  vi 1
+   61  vi 2
+   62  chmod 755 2
+   63  ./2
+   64  vi 2
+   65  chmod 755 2
+   66  ./2
+   67  cd Desktop
+   68  vi 1
+   69  cd Desktop
+   70  vi 1
+   71  ssh engg@192.168.2.78
+   72  ./1
+   73  ./1.sh
+   74  vi 1
+   75  cd Desktop
+   76  vi 1
+   77  chmod 755 1
+   78  ./1
+   79  vi 1
+   80  chmod 755 1
+   81  ./1
+   82  clear
+   83  vi 1
+   84  chmod 755 1
+   85  ./1
+   86  clear
+   87  cd ..
+   88  ssh accure@192.168.2.82
+   89  cd Desktop
+   90  ./1
+   91  clear
+   92  ./sh
+   93  clear
+   94  ./1
+   95  clear
+   96  vi 1
+   97  cd Desktop
+   98  vi 1
+   99  ssh engg@192.168.2.78
+  100  ssh engg@192.168.2.78
+  101  xdg-open http://192.168.2.82:8080/irheum-webui/jsp/index.jsp
+  102  ifconfig
+  103  cd Desktop/
+  104  sh install_chrome.sh 
+  105  sudo sh install_chrome.sh 
+  106  su
+  107  xdg-open http://www.google.com
+  108  ifconfig
+  109  ssh accure@192.168.2.82
+  110  ifconfig
+  111  clear
+  112  ssh accure@192.168.2.121 "xdg-open http://www.google.com"
+  113  xdg-open http://www.google.com
+  114  $ /usr/bin/firefox
+  115  /usr/bin/firefox
+  116  /usr/bin/firefox -new-window http://www.cyberciti.biz/
+  117  ipconfig
+  118  ifconfig
+  119  clear
+  120  sssh accure@192.168.2.82
+  121  ssh accure@192.168.2.82
+  122  $ ping 192.168.2.82:8080/irheum-webui/jsp/index.jsp
+  123  ping 192.168.2.82:8080/irheum-webui/jsp/index.jsp
+  124  ping 192.168.2.82:8080
+  125  ping 192.168.2.82
+  126  ping http://192.168.2.82:8080/irheum-webui/jsp/index.jsp
+  127  ping 192.168.2.82 http://192.168.2.82:8080/irheum-webui/jsp/index.jsp
+  128  ping 192.168.2.82 http://irheum-webui/jsp/index.js
+  129  ping 192.168.2.82 irheum-webui/jsp/index.jsp
+  130  clear
+  131  ssh engg@192.168.2.78
+  132  lear
+  133  clear
+  134  ssh accure@192.168.2.82
+  135  ssh accure@192.168.2.78
+  136  ssh accure@192.168.2.82
+  137  accure@192.168.2.82
+  138  ssh accure@192.168.2.82
+  139  ssh accure@192.16.2.78
+  140  clear
+  141  ssh accure@192.168.2.78
+  142  ssh engg@192.168.2.78
+  143  engg@192.168.2.78
+  144  ssh engg@192.168.2.78
+  145  ssh accure@192.168.2.82
+  146  ifconfig
+  147  clear
+  148  ssh accure@192.168..124
+  149  ssh accure@192.168.2.124
+  150  ssh accure@192.168.2.124
+  151  clear
+  152  cd ..
+  153  cd /usr/local/apache-tomcat-7.0.55/webapps
+  154  cd ~
+  155  clear
+  156  ssh -copy-id -i .ssh/id-rsa.pub accure@192.168.2.124
+  157  ssh accure@192.168.2.82
+  158  cd /usr/local/
+  159  ls
+  160  pwd
+  161  ifconfig
+  162  cd ~
+  163  cd /usr/
+  164  ls
+  165  cd local/
+  166  ls
+  167  scp -r /usr/local/apache-tomcat-7.0.55 accure@192.168.2.124:/usr/local
+  168  scp -r accure@192.168.2.82:/usr/local/apache-tomcat-7.0.55 accure@192.168.2.124:/usr/local
+  169  cd ~
+  170  scp -r accure@192.168.2.82:/usr/local/apache-tomcat-7.0.55 accure@192.168.2.124:/usr/local
+  171  cd /usr/home
+  172  cd /home/accure
+  173  pwd
+  174  ls
+  175  scp apache-tomcat-7.0.55 /usr/local/
+  176  scp -r apache-tomcat-7.0.55 /usr/local/
+  177  s
+  178  scp -r /home/accure/apache-tomcat-7.0.55 /usr/local
+  179  scp -r apache-tomcat-7.0.55 local
+  180  cd /usr/local/
+  181  ls
+  182  scp -r apache-tomcat-7.0.55 local
+  183  cd ~
+  184  scp -r apache-tomcat-7.0.55 accure@192.168.2.124:/usr/local
+  185  cp -r apache-tomcat-7.0.55 accure@192.168.2.124:/usr/local
+  186  cd /home/accure
+  187  pwd
+  188  ls -l
+  189  cp -r /usr/local/apache-tomcat-7.0.55/ .
+  190  cp -r /home/accure/apache-tomcat-7.0.55/ .
+  191  scp -r apache-tomcat-7.0.55 /usr/local
+  192  ls -l
+  193  scp -r apache-tomcat-7.0.55 /usr/local/
+  194  cp -r apache-tomcat-7.0.55 /usr/local/
+  195  sudo cp -r apache-tomcat-7.0.55 /usr/local/
+  196  ls
+  197  ls -l
+  198  sudo mv apache-tomcat-7.0.55/ /usr/local/
+  199  su
+  200  sudo mv apache-tomcat-7.0.55/ /usr/local/
+  201  su -r
+  202  su
+  203  ssh accure@192.168.2.124
+  204  cd ..
+  205  cd /home/accure/
+  206  mkdir quality
+  207  cd quality/
+  208  mkdir backup
+  209  cd backup/
+  210  ls
+  211  cd ~
+  212  cd /usr/local/apache-tomcat-7.0.55/webapps/
+  213  ls
+  214  rm -rf irheum-*
+  215  ls
+  216  cd ..
+  217  cd /home/accure/quality/backup/
+  218  ls
+  219  rm -rf irheum-
+  220  rm -rf irheum-*
+  221  ls
+  222  ssh-copy-id -i .ssh/id_rsa.pub accure@192.168.2.124
+  223  ssh engg@192.168.2.78
+  224  sudo nano /etc/hosts
+  225  ls
+  226  mkdir test
+  227  sudo mv test/ /usr/
+  228  cd ..
+  229  cd 
+  230  sudo -i
+  231  su
+  232  ls
+  233  sudo mv test/ /usr/
+  234  rm -rf /usr/test/
+  235  sudo rm -rf /usr/test/
+  236  ls /usr/local/
+  237  su
+  238  nano /etc/hosts
+  239  sudo nano /etc/hosts
+  240  sudo nano /etc/sysconfig/network
+  241  hostname
+  242  cd /
+  243  cd /usr/local/apache-tomcat-7.0.55/webapps/
+  244  pwd
+  245  ls
+  246  cd ..
+  247  cd /
+  248  cd /home/accure/quality/backup/
+  249  ls
+  250  rm -rf irheum-*
+  251  ls
+  252  cd /usr/local/apache-tomcat-7.0.55/webapps
+  253  ls
+  254  rm -rf irheum-*
+  255  ls
+  256  nano ~/.bash_profile
+  257  hostname
+  258  cd..
+  259  cd ..
+  260  ls
+  261  cd .
+  262  cd ..
+  263  cd /
+  264  cd /home/accure
+  265  ls
+  266  sudo nano /etc/sudoers
+  267  visudo
+  268  sudo visudo
+  269  visudo
+  270  sudo visudo
+  271  sudo nano /etc/sudoers/tmp
+  272  sudo nano /etc/sudoers.tmp
+  273  ls
+  274  ls -l
+  275  sudo nano /etc/sudoers.tmp
+  276  su -
+  277  nano .ssh/authorized_keys 
+  278  hostname
+  279  ssh engg@192.168.2.78
+  280  ssh accure@192.168.2.124
+  281  whoami
+  282  [\u@\h\w]#
+  283  "[\u@\h\w]#"
+  284  clear
+  285  clear
+  286  ssh engg@192.168.2.78
+  287  clear
+  288  ssh engg@192.168.2.78
+  289  ssh accure@192.168.2.124
+  290  clear
+  291  ssh engg@192.168.2.78
+  292  clear
+  293  ssh engg@192.168.2.78
+  294  clear
+  295  ssh engg@192.168.2.78
+  296  ifconfig
+  297  ping 192.168.2.78
+  298  ssh engg@192.168.2.78
+  299  ifconfig
+  300  ping 192.168.2.78
+  301  ssh engg@192.168.2.78
+  302  ifconfig
+  303  ping 192.168.2.78
+  304  ssh engg@192.168.2.78
+  305  ifconfig
+  306  ping 192.168.2.78
+  307  ssh engg@192.168.2.78
+  308  clear
+  309  ping 192.168.2.78
+  310  ssh engg@192.168.2.78
+  311  cd /usr/local/apache-tomcat-7.0.55/
+  312  ls
+  313  cd webapps/
+  314  ls
+  315  rm -rf irheum-*
+  316  ls
+  317  ssh accure@192.168.2.122
+  318  cd ~
+  319  cd /home 
+  320  ls
+  321  cd accure
+  322  ls
+  323  cd quality
+  324  ls
+  325  cd backup
+  326  ls
+  327  cd /
+  328  cd /usr/local/
+  329  ls
+  330  nano ~/.bash_profile
+  331  clear
+  332  adduser quality
+  333  visudo
+  334  sudo adduser quality
+  335  sudo visudo
+  336  su
+  337  cd /home/accure
+  338  ls
+  339  sudo mv jdk1.7.0_45 /usr/local
+  340  cd .
+  341  pwd
+  342  cd /usr/local/
+  343  ls
+  344  nano ~/.bash_profile
+  345  ssh-copy-id -i .ssh/id_rsa.pub accure@192.168.2.124
+  346  accure.123
+  347  cd /usr/local
+  348  ls
+  349  cd jdk1.7.0_45/
+  350  ls
+  351  cd bin
+  352  ls
+  353  cd ..
+  354  nano ~/.bash_profile
+  355  cd /usr/local/jdk1.7.0_45/
+  356  ls
+  357  cd ~
+  358  hostname
+  359  nano /etc/hosts
+  360  vim /etc/sysconf/network
+  361  nano /etc/sysconf/network
+  362  sudo vim /etc/sysconf/network
+  363  sudo vim /etc/sysconfig/network
+  364  nano /etc/hosts
+  365  sudo nano /etc/hosts
+  366  nano /etc/sysconf/network
+  367  nano /etc/sysconfig/network
+  368  hostname
+  369  nano /etc/sysconfig/network
+  370  nano /etc/hosts
+  371  sudo nano /etc/hosts
+  372  y
+  373  sudo nano /etc/hosts
+  374  nano /etc/sysconfig/network
+  375  hostname host22.quality.local 
+  376  su hostname host22.quality.local 
+  377  su
+  378  hostname
+  379  dnsdomainname
+  380  hostname
+  381  dnsdomainname
+  382  sudo nano /etc/hosts
+  383  hostname
+  384  dnsdomainname
+  385  nano /etc/sysconfig/network
+  386  hostname
+  387  hostname -f
+  388  dnsdomainname
+  389  sudo nano /etc/hosts
+  390  /etc/int.d/network restart
+  391  service network restart
+  392  clear
+  393  nano /etc/sysconfig/network
+  394  /etc/int.d/network restart
+  395  sudo /etc/int.d/network restart
+  396  nano/etc/int.d/network restart
+  397  nano /etc/int.d/network restart
+  398  vim /etc/int.d/network restart
+  399  /etc/int.d/network restart
+  400  hostname quality
+  401  su
+  402  ssh quality@192.168.2.122
+  403  sudo adduser quality
+  404  adduser quality
+  405  sudo adduser quality
+  406  sudo nano /etc/hosts
+  407  hostname host122
+  408  su
+  409  visudo
+  410  su
+  411  useradd -m quality
+  412  su
+  413  sudo nano /etc/sudoers
+  414  sudo vim /etc/sysconfig/network
+  415  sudo vim /etc/hosts
+  416  hostname
+  417  hostname host122
+  418  su 
+  419  sudo vim /etc/sysconfig/network
+  420  sudo vim /etc/hosts
+  421  sudo nano /etc/sudoers
+  422  hostname
+  423  hostname -f
+  424  ssh quality@192.168.2.122
+  425  /etc/int.d/network restart
+  426  vi /etc/int.d/network restart
+  427  sudo nano /etc/int.d/network restart
+  428  service network restart
+  429  ssh quality@192.68.2.122
+  430  ssh quality@192.168.2.122
+  431  ping 192.168.2.78
+  432  ssh engg@192.168.2.78
+  433  ssh quality@192.168.2.122
+  434  history
+
+___________________________________________________________________________________________________
+
+On Quality
+
+
+hostname
+    2  sudo nano /etc/sudoers
+    3  visudo
+    4  su
+    5  sudo nano /etc/sudoers
+    6  sudo nano /etc/sysconfig/network
+    7  sudo nano /etc/sudoers
+    8  sudo nano /etc/hosts
+    9  sudo nano /etc/sysconfig/network
+   10  sudo nano /etc/sysconfig/network-scripts/ifcfg-eth0
+   11  sudo nano /etc/sysconfig/network
+   12  ifconfig
+   13  sudo nano /etc/sysconfig/network-scripts/ifcfg-eth0
+   14  sudo nano /etc/resolv.conf
+   15  sudo nano /etc/sysconfig/network-scripts/ifcfg-eth0
+   16  sudo nano /etc/resolv.conf
+   17  /etc/init.d/network restart
+   18  service network restart
+   19  ifconfig eth0
+   20  sudo nano /etc/sysconfig/network-scripts/ifcfg-eth0
+   21  clear
+   22  vi /etc/sysconfig/network
+   23  sudo vi /etc/sysconfig/network
+   24  sudo nano /etc/sysconfig/network-scripts/ifcfg-eth0
+   25  sudo nano /etc/resolv.conf
+   26  /etc/init.d/network restart
+   27  sudo nano /etc/sysconfig/network-scripts/ifcfg-eth0
+   28  ssh-keygen
+   29  ssh-copy-id -i ~/.ssh/id_rsa.pub quality@192.168.2.122
+   30  nano .ssh/authorized_keys
+   31  clear
+   32  hostname -f
+   33  clear
+   34  nano .ssh/authorized_keys
+   35  ls
+   36  ls -l /usr/local/apache-tomcat-7.0.55/
+   37  sudo chown -r quality:quality
+   38  sudo chown -r quality:quality /usr/local/apache-tomcat-7.0.55/
+   39  sudo chown -R quality:quality /usr/local/apache-tomcat-7.0.55/
+   40  ls -l /usr/local/apache-tomcat-7.0.55/
+   41  ls -l /usr/local/
+   42  ls -l 
+   43  mkdir test
+   44  ls -l 
+   45  rm -r test
+   46  cd /usr/local/apache-tomcat-7.0.55/webapps/
+   47  ls
+   48  cd /
+   49  cd /usr/local
+   50  s
+   51  ls
+   52  cd /home
+   53  ls
+   54  cd quality
+   55  cd /home/quality
+   56  ls
+   57  cd /home/quality/backup
+   58  cd /home/quality
+   59  mkdir backup
+   60  cd backup
+   61  clear
+   62  ls
+   63  cd /usr/local/apache-tomcat-7.0.55/webapps/
+   64  ls
+   65  clear
+   66  sudo nano /etc/hosts
+   67  hostname
+   68  hostname host122.quality.local
+   69  sudo hostname host122.quality.local
+   70  hostname
+   71  ipconfig
+   72  ifconfig
+   73  ssh quality@host122.quality.local
+   74  sudo nano /etc/hosts
+   75  hostname
+   76  hostname host122.quality.local
+   77  sudo hostname host122.quality.local
+   78  hostname
+   79  ssh quality@host122.quality.local
+   80  clear
+   81  ssh engg@192.168.2.78
+   82  ssh-keygen
+   83  ssh-copy-id -i ~/.ssh/id_rsa.pub quality@host122.quality.local
+   84  nano .ssh/authorized_keys 
+   85  ssh engg@192.168.2.78
+   86  nano .ssh/authorized_keys 
+   87  ssh-keygen
+   88  ssh-copy-id -i ~/.ssh/id_rsa.pub engg@192.168.2.78
+   89  nano /etc/hosts
+   90  hostname -f
+   91  nano /etc/hosts
+   92  sudo nano /etc/hosts
+   93  ssh quality@192.168.2.122
+   94  cd /usr/local/apache-tomcat-7.0.55/webapps/
+   95  ls
+   96  cd ..
+   97  clear
+   98  cd webapps/
+   99  ls
+  100  nano ssh/authorized_keys
+  101  hostname
+  102  hostname -f
+  103  hostname-f
+  104  hostname
+  105  sudo vim /etc/sysconfig/network
+  106  sudo vim /etc/hosts
+  107  hostname
+  108  visudo
+  109  su
+  110  hostname
+  111  service network restart
+  112  hostname
+  113  nano .ssh/authorized_keys 
+  114  cd /usr/local/apache-tomcat-7.0.55/webapps/
+  115  ls
+  116  cd ..
+  117  cd webapps/
+  118  ls
+  119  re -f irheum
+  120  re -f irheum-*
+  121  rm -f irheum-*
+  122  ls
+  123  clear
+  124  ssh engg@192.168.2.78
+  125  ssh accure@192.168.2.77
+  126  nano .ssh/authorized_keys 
+  127  cd /usr/local/apache-tomcat-7.0.55/webapps/
+  128  ls
+  129  cd /home/quality
+  130  ls
+  131  rm -f backup
+  132  rm -rf backup
+  133  ls
+  134  mkdir quality
+  135  cd quality
+  136  ls
+  137  mkdir backup
+  138  cd backup
+  139  ls
+  140  pwd
+  141  clear
+  142  cd /usr/local/apache-tomcat-7.0.55/webapps/
+  143  ls
+  144  scp -r apache-tomcat-7.0.55 accure@192.168.2.77
+  145  cd ..
+  146  cd..
+  147  cd ..
+  148  ls
+  149  scp -r apache-tomcat-7.0.55 accure@192.168.2.122
+  150  cd ..
+  151  cd ~
+  152  scp -rf apache-tomcat-7.0.55 accure@192.168.2.122
+  153  scp -rf apache-tomcat-7.0.55 accure@192.168.2.122:/home/accure
+  154  scp -rf quality@192.168.2.122:/usr/local/apache-tomcat-7.0.55/webapps/irheum.* accure@192.168.2.122:/usr/local/apache-tomcat-7.0.55/webapps/
+  155  cd /home/quality/quality/backup
+  156  ls
+  157  cd /home/quality/quality/backup
+  158  ls
+  159  cd ~
+  160  cd /usr/local/apache-tomcat-7.0.55/webapps/
+  161  ls
+  162  scp /usr/local/apache-tomcat-7.0.55/webapps/irheum-*.war accure@192.168.2.122:/usr/local/apache-tomcat-7.0.55/webapps/
+  163  ssh engg@192.168.2.78
+  164  ssh engg@192.168.2.77
+  165  clear
+  166  ssh accure@192.168.2.77
+  167  ssh engg@192.168.2.78
+  168  nano .ssh/authorized_keys
+  169  clear
+  170  cd /home/quality/quality/backup
+  171  ls
+  172  ssh quality@192.168.2.122
+  173  su
+  174  visudo
+  175  su
+  176  sudo /etc/sysconfig/network
+  177  sudo vim /etc/sysconfig/network
+  178  sudo vim /etc/hosts
+  179  hostname
+  180  service network restart
+  181  clear
+  182  sudo nano /etc/sysconfig/network
+  183  sudo vim /etc/sysconfig/network-scripts/ifcfg-eth0
+  184  sudo nano /etc/resolv.conf
+  185  ssh-keygen
+  186  ssh-copy-id -i ~/.ssh/id_rsa.pub quality@192.168.2.122
+  187  nano .ssh/authorized_keys 
+  188  ssh-keygen
+  189  ssh-copy-id -i ~/.ssh/id_rsa.pub quality@192.168.2.122
+  190  nano .ssh/authorized_keys 
+  191  clear
+  192  ./buildmovement
+  193  ./main
+  194  cd /home/quality/quality/backup
+  195  ssh quality@192.168.2.122
+  196  cd /home/quality
+  197  mkdir quality
+  198  cd quality
+  199  mkdir backup
+  200  cd backup
+  201  ls
+  202  pwd
+  203  history
+  204  cd ~
+  205  history
+[quality@host122 ~]$ 

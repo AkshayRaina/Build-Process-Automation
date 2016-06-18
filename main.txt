@@ -1,0 +1,1 @@
+./buildmovement $1 $2
