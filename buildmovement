@@ -1,0 +1,34 @@
+#!/bin/bash
+
+##### Creating backup for old versions and then deleting old versions
+
+echo "Creating Backup for old versions."
+
+scp quality@$2:/usr/local/apache-tomcat-7.0.55/webapps/irheum-*.war quality@$2:/home/quality/quality/backup
+
+echo "Backup Successfully Created."
+
+echo "Deleting old versions if any."
+
+ssh quality@$2 "rm -rf /usr/local/apache-tomcat-7.0.55/webapps/irheum-*"
+
+echo "Deletion Complete."
+
+# Starting Deployment
+
+echo "Starting Deployment."
+
+scp engg@$1:/usr/local/apache-tomcat-7.0.55/webapps/irheum-*.war quality@$2:/usr/local/apache-tomcat-7.0.55/webapps/
+
+# Checking Application Status
+
+echo "Restarting Tomcat."
+
+ssh quality@$2 "sh /usr/local/apache-tomcat-7.0.55/bin/shutdown.sh"
+
+ssh quality@$2 "sh /usr/local/apache-tomcat-7.0.55/bin/startup.sh"
+
+echo "Tomacat Restart Completed"
+
+echo "Deployment Completed."
+
