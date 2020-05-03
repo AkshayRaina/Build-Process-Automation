@@ -1,4 +1,4 @@
-# iRheum - Build-Process-Automation - DevOps
+# Build-Process-Automation
 
 Organisation: Accure Analytics Pvt. Ltd.
 
